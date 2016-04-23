@@ -61,20 +61,52 @@ def get_db():
         g.sqlite_db = connect_db()
     return g.sqlite_db
 
-
 @app.teardown_appcontext
 def close_db(error):
     """Closes the database again at the end of the request."""
     if hasattr(g, 'sqlite_db'):
         g.sqlite_db.close()
 
-
+#imagen base sin login
 @app.route('/')
 def show_entries():
     db = get_db()
     cur = db.execute('select id, title, text from entries order by id desc')
     entries = cur.fetchall()
-    return render_template('show_entries.html', entries=entries)
+    return render_template('index.html', entries=entries)
+    #return render_template('show_entries.html', entries=entries)
+
+#recupera polizas renovadas no pagadas
+@app.route('/renovada')
+def show_renovada():
+    db = get_db()
+    cur = db.execute('select id, title, text from entries order by id desc')
+    entries = cur.fetchall()
+    return render_template('renovada.html', entries=entries)
+
+#recupera polizas notificadas al cliente
+@app.route('/notificada')
+def show_notificada():
+    db = get_db()
+    cur = db.execute('select id, title, text from entries order by id desc')
+    entries = cur.fetchall()
+    return render_template('notificada.html', entries=entries)
+    
+#recupera polizas ya pagadas
+@app.route('/pagada')
+def show_pagada():
+    db = get_db()
+    cur = db.execute('select id, title, text from entries order by id desc')
+    entries = cur.fetchall()
+    return render_template('pagada.html', entries=entries)
+
+#recupera polizas vencidas
+@app.route('/vencida')
+def show_vencida():
+    db = get_db()
+    cur = db.execute('select id, title, text from entries order by id desc')
+    entries = cur.fetchall()
+    return render_template('vencida.html', entries=entries)   
 
 
 @app.route('/add', methods=['POST'])
@@ -99,9 +131,6 @@ def delete_entry():
     db.commit()
     flash('New entry was succesfully deleted')
     return redirect(url_for('show_entries'))
-                
-    
-        
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -117,16 +146,12 @@ def login():
             return redirect(url_for('show_entries'))
     return render_template('login.html', error=error)
 
-
 @app.route('/logout')
 def logout():
     session.pop('logged_in', None)
     flash('You were logged out')
     return redirect(url_for('show_entries'))
 
-
 if __name__ == '__main__':
     # app.run()
     app.run(host=os.getenv('IP','0.0.0.0'),port=int(os.getenv('PORT',8080)))
-    
-    

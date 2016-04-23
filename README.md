@@ -13,6 +13,7 @@ https://c9.io/
 <h5>New features:</h5>
 <ul>
     <li>Delete entries(only if user logged).</li>
+    <li>Favicon.</li>
 </ul>
 
 
