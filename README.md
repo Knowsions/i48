@@ -1,19 +1,19 @@
-<h1>Micro blog using Flask and cloud9.</h1>
+<h1>Aplicacion para HDI</h1>
 
 <p>
-This is the example for create Micro blog, follow the steps from Flask documentation.
+Hecha con python flask
 </p>
 
-All the references from this projects and attributions comes from Flask tutorial:<br>
-http://flask.pocoo.org/docs/0.10/tutorial/
+cosas importantes<br>
+http://link
 
-Working over cloud9 with Ubuntu Workspace:<br>
-https://c9.io/
+otras cosas<br>
+https://link
 
-<h5>New features:</h5>
+<h5>Caracteristicas:</h5>
 <ul>
-    <li>Delete entries(only if user logged).</li>
-    <li>Favicon.</li>
+    <li>Bla bla bla.</li>
+    <li>si aja.</li>
 </ul>
 
 
