@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block body %}
+  {% if session.logged_in %}
+    <form action="{{ url_for('add_estatus') }}" method="post" >
+      <dl>
+        <dt>Id:
+        <dd><input type="text" size="30" name="id">
+        <dt>Descripcion:
+        <dd><textarea name="descripcion" rows="5" cols="40"></textarea>
+        <dd><input type="submit" value="Insertar">
+      </dl>
+    </form>
+  {% endif %}
+  <ul>
+  {% for current in estatus %}
+     <form action="{{ url_for('delete_estatus') }}" method="post" >
+      <li><h2>{{ current.id }}</h2>{{ current.descripcion }}
+      <button type="submit"  name="id" value={{ current.id }} >Borrar</button>
+    </form>
+  {% else %}
+    <li><em>sin estatus</em>
+  {% endfor %}
+  </ul>
+{% endblock %}

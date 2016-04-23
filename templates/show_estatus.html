@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+{% block body %}
+  {% if session.logged_in %}
+  <table class="table">
+    <thead>
+    <tr>
+      <th>#</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Username</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+  
+  </table>
+    <form action="{{ url_for('add_estatus') }}" method="post" >
+      <dl>
+        <dt>Id:
+        <dd><input type="text" size="30" name="id">
+        <dt>Descripcion:
+        <dd><textarea name="descripcion" rows="5" cols="40"></textarea>
+        <dd><input type="submit" value="Insertar">
+      </dl>
+    </form>
+  {% endif %}
+  <ul>
+  {% for current in estatus %}
+     <form action="{{ url_for('delete_estatus') }}" method="post" >
+      <li><h2>{{ current.id }}</h2>{{ current.descripcion }}
+      <button type="submit"  name="id" value={{ current.id }} >Borrar</button>
+    </form>
+  {% else %}
+    <li><em>sin estatus</em>
+  {% endfor %}
+  </ul>
+{% endblock %}

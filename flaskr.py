@@ -67,28 +67,20 @@ def close_db(error):
     if hasattr(g, 'sqlite_db'):
         g.sqlite_db.close()
 
-#imagen base sin login
+#agregar estatus
 @app.route('/')
-def show_entries():
+def show():
+    return render_template('show.html')
+
+#agregar estatus
+@app.route('/estatus')
+def show_estatus():
     db = get_db()
-    cur = db.execute('select id, title, text from entries order by id desc')
-    entries = cur.fetchall()
-    #return render_template('index.html', entries=entries)
-    return render_template('show_entries.html', entries=entries)
+    cur = db.execute('select id, descripcion from catalogo_estatus order by id desc')
+    estatus = cur.fetchall()
+    return render_template('show_estatus.html', estatus=estatus)
 
 #agregar entrada blog
-@app.route('/add', methods=['POST'])
-def add_entry():
-    if not session.get('logged_in'):
-        abort(401)
-    db = get_db()
-    db.execute('insert into entries (title, text) values (?, ?)',
-               [request.form['title'], request.form['text']])
-    db.commit()
-    flash('New entry was successfully posted')
-    return redirect(url_for('show_entries'))
-
-#agregar estatus al catalogo
 @app.route('/addestatus', methods=['POST'])
 def add_estatus():
     if not session.get('logged_in'):
@@ -97,22 +89,10 @@ def add_estatus():
     db.execute('insert into catalogo_estatus (id, descripcion) values (?, ?)',
                [request.form['id'], request.form['descripcion']])
     db.commit()
-    flash('nuevo estatus agregado')
+    flash('Nuevo estatus agregado correctamente')
     return redirect(url_for('show_estatus'))
 
-#Delete entry selected
-@app.route('/delete', methods=['POST'])
-def delete_entry():
-    if not session.get('logged_in'):
-        abort(401)
-    db = get_db()
-    db.execute('delete from entries where id = ?',
-                [request.form['id']])
-    db.commit()
-    flash('New entry was succesfully deleted')
-    return redirect(url_for('show_entries'))
-    
-#Delete estatus selected
+#Delete status selected
 @app.route('/deleteestatus', methods=['POST'])
 def delete_estatus():
     if not session.get('logged_in'):
@@ -121,9 +101,8 @@ def delete_estatus():
     db.execute('delete from catalogo_estatus where id = ?',
                 [request.form['id']])
     db.commit()
-    flash('Estatus eliminado')
+    flash('borrado')
     return redirect(url_for('show_estatus'))
-
 
 
 #login del usuario
@@ -138,14 +117,14 @@ def login():
         else:
             session['logged_in'] = True
             flash('You were logged in')
-            return redirect(url_for('show_entries'))
+            return redirect(url_for('show_estatus'))
     return render_template('login.html', error=error)
 
 @app.route('/logout')
 def logout():
     session.pop('logged_in', None)
     flash('You were logged out')
-    return redirect(url_for('show_entries'))
+    return redirect(url_for('show_estatus'))
 
 if __name__ == '__main__':
     # app.run()
