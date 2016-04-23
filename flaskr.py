@@ -73,42 +73,10 @@ def show_entries():
     db = get_db()
     cur = db.execute('select id, title, text from entries order by id desc')
     entries = cur.fetchall()
-    return render_template('index.html', entries=entries)
-    #return render_template('show_entries.html', entries=entries)
+    #return render_template('index.html', entries=entries)
+    return render_template('show_entries.html', entries=entries)
 
-#recupera polizas renovadas no pagadas
-@app.route('/renovada')
-def show_renovada():
-    db = get_db()
-    cur = db.execute('select id, title, text from entries order by id desc')
-    entries = cur.fetchall()
-    return render_template('renovada.html', entries=entries)
-
-#recupera polizas notificadas al cliente
-@app.route('/notificada')
-def show_notificada():
-    db = get_db()
-    cur = db.execute('select id, title, text from entries order by id desc')
-    entries = cur.fetchall()
-    return render_template('notificada.html', entries=entries)
-    
-#recupera polizas ya pagadas
-@app.route('/pagada')
-def show_pagada():
-    db = get_db()
-    cur = db.execute('select id, title, text from entries order by id desc')
-    entries = cur.fetchall()
-    return render_template('pagada.html', entries=entries)
-
-#recupera polizas vencidas
-@app.route('/vencida')
-def show_vencida():
-    db = get_db()
-    cur = db.execute('select id, title, text from entries order by id desc')
-    entries = cur.fetchall()
-    return render_template('vencida.html', entries=entries)   
-
-
+#agregar entrada blog
 @app.route('/add', methods=['POST'])
 def add_entry():
     if not session.get('logged_in'):
@@ -119,6 +87,18 @@ def add_entry():
     db.commit()
     flash('New entry was successfully posted')
     return redirect(url_for('show_entries'))
+
+#agregar estatus al catalogo
+@app.route('/addestatus', methods=['POST'])
+def add_estatus():
+    if not session.get('logged_in'):
+        abort(401)
+    db = get_db()
+    db.execute('insert into catalogo_estatus (id, descripcion) values (?, ?)',
+               [request.form['id'], request.form['descripcion']])
+    db.commit()
+    flash('nuevo estatus agregado')
+    return redirect(url_for('show_estatus'))
 
 #Delete entry selected
 @app.route('/delete', methods=['POST'])
@@ -131,7 +111,22 @@ def delete_entry():
     db.commit()
     flash('New entry was succesfully deleted')
     return redirect(url_for('show_entries'))
+    
+#Delete estatus selected
+@app.route('/deleteestatus', methods=['POST'])
+def delete_estatus():
+    if not session.get('logged_in'):
+        abort(401)
+    db = get_db()
+    db.execute('delete from catalogo_estatus where id = ?',
+                [request.form['id']])
+    db.commit()
+    flash('Estatus eliminado')
+    return redirect(url_for('show_estatus'))
 
+
+
+#login del usuario
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     error = None
