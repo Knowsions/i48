@@ -68,7 +68,7 @@ def close_db(error):
         g.sqlite_db.close()
 
 #agregar estatus
-@app.route('/')
+
 def show():
     return render_template('show.html')
 
@@ -130,7 +130,7 @@ def delete_estatus():
 
 
 #login del usuario
-@app.route('/login', methods=['GET', 'POST'])
+@app.route('/', methods=['GET', 'POST'])
 def login():
     error = None
     if request.method == 'POST':
