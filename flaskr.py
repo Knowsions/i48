@@ -81,7 +81,7 @@ def show_estatus():
     return render_template('show_estatus.html', estatus=estatus)
     
 #agregar vista polizas renovadas sin cobrar
-@app.route('/renovadas')
+@app.route('/')
 def show_renovadas():
     db = get_db()
     cur = db.execute('select no_poliza,	case when fecha_vencimiento < date(date(\'now\'), \'+5 day\')\
@@ -130,7 +130,7 @@ def delete_estatus():
 
 
 #login del usuario
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/login', methods=['GET', 'POST'])
 def login():
     error = None
     if request.method == 'POST':
