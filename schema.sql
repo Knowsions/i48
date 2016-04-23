@@ -33,5 +33,22 @@ create table polizas(
 
 insert into polizas(no_poliza, fecha_vencimiento,costo_renovacion,nombre_cliente,
   telefono,correo,direccion,estatus) 
-    values('12345', '2016/04/30',500,Karimcho Fernandez,4777789786,'karim@correo.com',
+    values('11111', '2016/04/30',500,'Karimcho Fernandez',4777789786,'karim@correo.com',
     'Av. Siempre Viva 123',1);
+    
+insert into polizas(no_poliza, fecha_vencimiento,costo_renovacion,nombre_cliente,
+  telefono,correo,direccion,estatus) 
+    values('22222', '2016/05/07',1500,'Cosme Fulanito',4777789786,'cosme@correo.com',
+    'Av. Chinbollo 77',1);
+    
+insert into polizas(no_poliza, fecha_vencimiento,costo_renovacion,nombre_cliente,
+  telefono,correo,direccion,estatus) 
+    values('33333', '2016/04/28',700,'Leonard Nimochatelas',4777798986,'leonard@correo.com',
+    'calle Fresco del Chuy 77',1);
+    
+insert into polizas(no_poliza, fecha_vencimiento,costo_renovacion,nombre_cliente,
+  telefono,correo,direccion,estatus) 
+    values('44444', '2016/05/10',1000,'Aquino Esta',4777788376,'aquibo@correo.com',
+    'Aquino Vive sin numero',1);
+    
+    
