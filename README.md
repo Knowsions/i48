@@ -34,20 +34,21 @@ Acceder a la siguiente liga ejemplo e identificarse con un usuario y contraseña
 					<dd>Karim Herrera</dd>
 					<dd>Julia</dd></i>
 			</dl>
-			<dt>Diseño:</dt><i>
-					
-					
+			<dl>
+    			<dt>Diseño:</dt><i>
 					<dd>Karim</dd>
 					<dd>Elia Vite </dd></i>
 
 			</dl>
-			<dt>Programación:</dt><i>
+			<dl>
+			    <dt>Programación:</dt><i>
 					
 					<dd> Omar Fuentes  </dd>
 					<dd>Jonathan</dd>
 					<dd>Karim Herrera</dd>
 			
 			</dl>
+			<dl>
 			<dt>Negocios:</dt><i>
 					
 					<dd> Andrea Muñoz Garcia </dd>
