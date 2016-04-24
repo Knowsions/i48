@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+{% block body %}
+  {% if session.logged_in %}
+  
+  <!-- START DATATABLE-->
+  <div class="table-responsive">
+    <div class="row">
+      <div class="col-lg-12">
+        <table class="table">
+          <thead>
+            <tr>
+            <!--<th>id_poliza</th>-->
+            <th>Detalle Siniestro</th>
+            <th>Monto Pagado</th>
+            <!--<th>costo_renovacion</th>-->
+            <th>Descuento Aplicado</th>
+            <th>Razon Descuento</th>
+            <!--<th>telefono</th>-->
+            <!--<th>correo</th>-->
+            <!--<th>direccion</th>-->
+            <!--<th>estatus</th>-->
+            </tr>
+          </thead>
+          <tbody>
+            {% for register in historial %}
+              <form action="{{ url_for('update') }}" method="post" >
+                  <tr class="info">  
+                  
+                  <td>{{ register.detalle_siniestro }}</td>
+                  <td>{{ register.monto_pago }}</td>
+                  <td>{{ register.descuento }}</td>
+                  <td>{{ register.razon_descuento }}</td>
+                </tr>    
+              </form>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+{% endblock %}
