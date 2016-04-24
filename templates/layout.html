@@ -12,35 +12,33 @@
     <title>HDI</title>
     
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
-        <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+    
+    <!-- =============== VENDOR STYLES ===============-->
+    <!-- FONT AWESOME-->
+    <link rel="stylesheet" href="static/css/font-awesome.min.css">
+    <!-- SIMPLE LINE ICONS-->
+    <link rel="stylesheet" href="static/css/simple-line-icons.css">
+    <!-- ANIMATE.CSS-->
+    <link rel="stylesheet" href="static/css/animate.min.css">
+    <!-- WHIRL (spinners)-->
+    <link rel="stylesheet" href="static/css/whirl.css">
+    <!-- =============== PAGE VENDOR STYLES ===============-->
+    <!-- WEATHER ICONS-->
+    <link rel="stylesheet" href="static/css/weather-icons.min.css">
+    <!-- =============== BOOTSTRAP STYLES ===============-->
+    <link rel="stylesheet" href="static/css/bootstrap.css" id="bscss">
+    <!-- =============== APP STYLES ===============-->
+    <link rel="stylesheet" href="static/css/app.css" id="maincss">
+
+    <!--<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">-->
+    <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
     <link href="static/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <!--<link href="static/css/freelancer.css" rel="stylesheet">-->
+    <link href="static/css/freelancer.css" rel="stylesheet">
 
-    <!-- Custom Fonts -->
-    <link href="static/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-
-   <!-- =============== VENDOR STYLES ===============-->
-   <!-- FONT AWESOME-->
-   <link rel="stylesheet" href="static/vendor/fontawesome/css/font-awesome.min.css">
-   <!-- SIMPLE LINE ICONS-->
-   <link rel="stylesheet" href="static/vendor/simple-line-icons/css/simple-line-icons.css">
-   <!-- ANIMATE.CSS-->
-   <link rel="stylesheet" href="static/vendor/animate.css">
-   <!-- WHIRL (spinners)-->
-   <link rel="stylesheet" href="static/vendor/whirl/dist/whirl.css">
-   <!-- =============== PAGE VENDOR STYLES ===============-->
-   <!-- WEATHER ICONS-->
-   <link rel="stylesheet" href="static/vendor/weather-icons/css/weather-icons.min.css">
-   <!-- =============== BOOTSTRAP STYLES ===============-->
-   <link rel="stylesheet" href="static/css/bootstrap.css" id="bscss">
-   <!-- =============== APP STYLES ===============-->
-   <link rel="stylesheet" href="static/css/app.css" id="maincss">
-
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -53,7 +51,7 @@
 
 <body >
 
-                  <!-- Navigation -->
+    <!-- Navigation -->
     <nav class="navbar-header navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -106,14 +104,46 @@
   {% block body %}{% endblock %}
 </div>
 
-    <!-- jQuery -->
+    <!-- BASE -->
+    <!-- =============== VENDOR SCRIPTS ===============-->
+    <!-- MODERNIZR-->
+    <script src="static/js/modernizr.custom.js"></script>
+    <!-- MATCHMEDIA POLYFILL-->
+    <script src="static/js/matchMedia.js"></script>
+    <!-- JQUERY-->
     <script src="static/js/jquery.js"></script>
+    <!-- BOOTSTRAP-->
+    <script src="static/js/bootstrap.js"></script>
+    <!-- STORAGE API-->
+    <script src="static/js/jquery.storageapi.js"></script>
+    <!-- JQUERY EASING-->
+    <script src="static/js/jquery.easing.js"></script>
+    <!-- ANIMO-->
+    <script src="static/js/animo.js"></script>
+    <!-- SLIMSCROLL-->
+    <script src="static/js/jquery.slimscroll.min.js"></script>
+    <!-- SCREENFULL-->
+    <script src="static/js/screenfull.js"></script>
+    <!-- LOCALIZE-->
+    <script src="static/js/jquery.localize.js"></script>
+    <!-- RTL demo-->
+    <script src="static/js/demo-rtl.js"></script>
+    <!-- =============== PAGE VENDOR SCRIPTS ===============-->
+    <!-- DATATABLES-->
+    <script src="static/js/jquery.dataTables.min.js"></script>
+    <script src="static/js/dataTables.colVis.js"></script>
+    <script src="static/js/dataTables.bootstrap.js"></script>
+    <script src="static/js/dataTables.bootstrapPagination.js"></script>
+    <!--<script src="static/js/demo-datatable.js"></script>-->
+    <!-- =============== APP SCRIPTS ===============-->
+    <!--<script src="static/js/app.js"></script>-->
+    <!-- BASE -->
 
     <!-- Bootstrap Core JavaScript -->
     <script src="static/js/bootstrap.min.js"></script>
 
     <!-- Plugin JavaScript -->
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="static/js/jquery.easing.min.js"></script>
     <script src="static/js/classie.js"></script>
     <script src="static/js/cbpAnimatedHeader.js"></script>
 
