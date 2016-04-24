@@ -1,7 +1,8 @@
 
 <h1>I-48 Aplicación para HDI Seguros</h1>
 <i>	Versión 1.0 hecha con Python Flask y SqlLite3 </i>
-<h3>Descripción:</h3> I-48 Es una aplicación web móvil de control y renovación de pólizas  diseñada para la empresa HDI Seguros dirigida a los agentes de ventas.
+<h3>Descripción:</h3> 
+I-48 Es una aplicación web móvil de control y renovación de pólizas  diseñada para la empresa HDI Seguros dirigida a los agentes de ventas.
 <h3>Características relevantes:</h3>
 <br>En ella se resuelve su problema con atrasos en renovación de pagos; como parte de la solución cuenta con una forma automatizada de alertas para recordar que póliza esta próxima a su fecha de vencimiento de la cartera de clientes del propio agente, permitiendo notificación vía SMS al número del cliente, contando con una interfaz agradable para el agente de ventas.
 
@@ -55,6 +56,6 @@ Acceder a la siguiente liga ejemplo e identificarse con un usuario y contraseña
     					<dd>Maria Fernanda</dd></i>
 			</dl>
 		</ul>
-	<h3>Contacto:</h3> 
-
-</p>
+	<h3>Contacto:</h3>
+	Nuestros datos como Empresa
+	<h5><i>Derechos Reservados: A Knowsions</i></h5> 
