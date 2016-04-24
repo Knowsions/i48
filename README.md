@@ -64,7 +64,7 @@ Acceder a la siguiente liga ejemplo e identificarse con un usuario y contraseña
     		</dl>
     		
     		
-Contacto:
+<h3>Contacto:</h3>
 
 <h5>Derechos Reservados: A Knowsions</h5>
     	
