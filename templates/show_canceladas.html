@@ -43,7 +43,7 @@
                         <!--<th>id_poliza</th>-->
                         <th>Poliza</th>
                         <th>Vence</th>
-                        <!--<th>costo_renovacion</th>-->
+                        <th>Costo renovación</th>
                         <th>Cliente</th>
                         <!--<th>telefono</th>-->
                         <!--<th>correo</th>-->
@@ -53,35 +53,24 @@
                       </thead>
                         
                       <tbody>
-                        {% for current in renovadas %}
-                          <form action="{{ url_for('update') }}" method="post" >
-                            {% if  current.peligro  == 1  %}
+                        {% for current in canceladas %}
+                          <!--<form action="{{ url_for('update_pagada') }}" method="post" >-->
                               <tr class="danger">
-                            {% else %}
-                              <tr class="info">  
-                            {% endif %}
                               <!--<td>{{ current.id_poliza }}</td>-->
                               <td>{{ current.no_poliza }}</td>
                               <td>{{ current.fecha_vencimiento }}</td>
-                              <!--<td>{{ current.costo_renovacion }}</td>-->
+                              <td>${{ current.costo_renovacion }}</td>
                               <td>{{ current.nombre_cliente }}</td>
                               <!--<td>{{ current.telefono }}</td>-->
                               <!--<td>{{ current.correo }}</td>-->
                               <!--<td>{{ current.direccion }}</td>-->
                               <!--<td>{{ current.estatus }}</td>-->
-                              {% if current.estatus  == 1%}
-                              <td><button class="btn btn-success" value="{{ current.id_poliza }}" name="id_poliza">Notificar</button></td>
-                              {% endif %}
-                              
-                              <!--<td><button type="submit" value="{{ current.id_poliza }}"  name="id_poliza"   class="btn btn-primary give-id" >Actualizar</button></td>-->
-                          </form>
+                          <!--</form>-->
                         {% endfor %}
                       </tbody>
                                           
                     </table>
                     
-                    
-                 
                   </div>
                 </div>
               </div>

@@ -13,40 +13,17 @@
     
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
     
-    <!-- =============== VENDOR STYLES ===============-->
+    
+    
     <!-- FONT AWESOME-->
     <link rel="stylesheet" href="static/css/font-awesome.min.css">
-    <!-- SIMPLE LINE ICONS-->
-    <link rel="stylesheet" href="static/css/simple-line-icons.css">
-    <!-- ANIMATE.CSS-->
-    <link rel="stylesheet" href="static/css/animate.min.css">
-    <!-- WHIRL (spinners)-->
-    <link rel="stylesheet" href="static/css/whirl.css">
-    <!-- =============== PAGE VENDOR STYLES ===============-->
-    <!-- WEATHER ICONS-->
-    <link rel="stylesheet" href="static/css/weather-icons.min.css">
-    <!-- =============== BOOTSTRAP STYLES ===============-->
-    <link rel="stylesheet" href="static/css/bootstrap.css" id="bscss">
-    <!-- =============== APP STYLES ===============-->
-    <link rel="stylesheet" href="static/css/app.css" id="maincss">
-
-    <!--<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">-->
-    <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
-    <link href="static/css/bootstrap.min.css" rel="stylesheet">
-
+    
+    
+    <!--<link href="static/css/freelancer.css" rel="stylesheet">-->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    
     <!-- Custom CSS -->
-    <link href="static/css/freelancer.css" rel="stylesheet">
-
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
+    <link rel="stylesheet" href="static/style.css">
 </head>
 
 <body >
@@ -65,53 +42,55 @@
                 <!--<a class="navbar-brand" href="#page-top">Polizas renovadas</a>-->
             </div>
             
-
+            <div class="container">
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-left">
+                <ul class="nav navbar-nav navbar-right">
                     <li class="page-scroll">
-                        <a href="/renovadas">Renovada</a>
+                        <a href="/renovadas">Renovadas</a>
                     </li>
-                    <!--<li class="page-scroll">-->
-                    <!--    <a href="/notificada">Notificada</a>-->
-                    <!--</li>-->
-                    <!--<li class="page-scroll">-->
-                    <!--    <a href="/pagada">Renovada pagada</a>-->
-                    <!--</li>-->
-                    <!--<li class="page-scroll">-->
-                    <!--    <a href="/vencida">Vencido</a>-->
-                    <!--</li>-->
+                    <li class="page-scroll">
+                        <a href="/notificadas">Notificadas</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="/canceladas">Canceladas</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="/pagadas">Pagadas</a>
+                    </li>
+                    <li class="page-scroll">
+                        {% if not session.logged_in %}
+                            <a href="{{ url_for('login') }}">Entrar</a>
+                        {% else %}
+                            <a href="{{ url_for('logout') }}">Salir</a>
+                        {% endif %}
+                        <!--{% for message in get_flashed_messages() %}-->
+                        <!--<div class="flash">{{ message }}</div>-->
+                        {% endfor %}
+                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
+            </div>
         </div>
         <!-- /.container-fluid -->
     </nav>
     
   
 <div class="col-lg-12">
-  <h1>Renovacion Polizas</h1>
-  <div class="metanav">
-  {% if not session.logged_in %}
-    <a href="{{ url_for('login') }}">log in</a>
-  {% else %}
-    <a href="{{ url_for('logout') }}">log out</a>
-  {% endif %}
-  </div>
-  {% for message in get_flashed_messages() %}
-    <div class="flash">{{ message }}</div>
-  {% endfor %}
+  
   {% block body %}{% endblock %}
 </div>
 
     <!-- BASE -->
     <!-- =============== VENDOR SCRIPTS ===============-->
+        <!-- JQUERY-->
+    <script src="static/js/jquery.js"></script>
     <!-- MODERNIZR-->
     <script src="static/js/modernizr.custom.js"></script>
     <!-- MATCHMEDIA POLYFILL-->
     <script src="static/js/matchMedia.js"></script>
-    <!-- JQUERY-->
-    <script src="static/js/jquery.js"></script>
+
     <!-- BOOTSTRAP-->
     <script src="static/js/bootstrap.js"></script>
     <!-- STORAGE API-->
@@ -153,6 +132,34 @@
 
     <!-- Custom Theme JavaScript -->
     <!--<script src="static/js/freelancer.js"></script>-->
+
+
+
+<script type="text/javascript" >
+
+$(".give-id").on('click',function(event) {
+    // element is a node that matches the selector
+    event.preventDefault();
+    var doc = this;
+    
+    var x = doc.getAttribute("name");
+    
+    function editPolicy(id){
+        
+    }
+    
+    console.log(x);
+    
+    
+});
+
+
+  
+</script>
+
 </body>
 
+
+
 </html>
+

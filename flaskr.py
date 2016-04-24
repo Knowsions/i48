@@ -89,24 +89,90 @@ def show_renovadas():
     if not session.get('logged_in'):
         return render_template('login.html')
     db = get_db()
-    cur = db.execute('select no_poliza,	case when fecha_vencimiento < date(date(\'now\'), \'+5 day\')\
+    #Solo polizas con estatus 1
+    cur = db.execute('select id_poliza,  no_poliza,	case when fecha_vencimiento < date(date(\'now\'), \'+5 day\')\
                 then 1\
                 else 0 end as peligro, fecha_vencimiento,costo_renovacion,nombre_cliente,\
-            telefono,correo,direccion,estatus from polizas order by fecha_vencimiento')
+            telefono,correo,direccion,estatus from polizas where estatus = 1  order by fecha_vencimiento')
     renovadas = cur.fetchall()
     return render_template('show_renovadas.html', renovadas=renovadas)
+    
+#vista polizas notificadas
+@app.route('/notificadas')
+def show_notificadas():
+    if not session.get('logged_in'):
+        return render_template('login.html')
+    #Cancelamos facturas ya vencidas
+    #cancelarFacturas()
+    db = get_db()
+    #Solo polizas con estatus 2
+    cur = db.execute('select id_poliza,  no_poliza,	case when fecha_vencimiento < date(date(\'now\'), \'+5 day\')\
+                then 1\
+                else 0 end as peligro, fecha_vencimiento,costo_renovacion,nombre_cliente,\
+            telefono,correo,direccion,estatus from polizas where estatus = 2  order by fecha_vencimiento')
+    notificadas = cur.fetchall()
+    return render_template('show_notificadas.html', notificadas=notificadas)
+    
+#vista polizas pagadas
+@app.route('/pagadas')
+def show_pagadas():
+    if not session.get('logged_in'):
+        return render_template('login.html')
+    db = get_db()
+    #Solo polizas con estatus 3
+    cur = db.execute('select id_poliza,  no_poliza,	case when fecha_vencimiento < date(date(\'now\'), \'+5 day\')\
+                then 1\
+                else 0 end as peligro, fecha_vencimiento,costo_renovacion,nombre_cliente,\
+            telefono,correo,direccion,estatus from polizas where estatus = 3  order by fecha_vencimiento')
+    pagadas = cur.fetchall()
+    return render_template('show_pagadas.html', pagadas=pagadas)
+    
+#vista polizas canceladas
+@app.route('/canceladas')
+def show_canceladas():
+    if not session.get('logged_in'):
+        return render_template('login.html')
+    db = get_db()
+    #Solo polizas con estatus 3
+    cur = db.execute('select id_poliza,  no_poliza,	case when fecha_vencimiento < date(date(\'now\'), \'+5 day\')\
+                then 1\
+                else 0 end as peligro, fecha_vencimiento,costo_renovacion,nombre_cliente,\
+            telefono,correo,direccion,estatus from polizas where estatus = 4  order by fecha_vencimiento')
+    canceladas = cur.fetchall()
+    return render_template('show_canceladas.html', canceladas=canceladas)
 
-#update poliza
+#cancelamos las polizas que ya superan la fecha limite
+def cancelarFacturas():
+    db = get_db()
+    #Cancelacion de facturas que superan su limite de vigencia
+    cur = db.execute('update polizas set estatus = 4 where fecha_vencimiento < date(\'now\')')
+    execute = cur.fetchall()
+    
+
+#update estatus poliza a estatus notificado
 @app.route('/update', methods=['POST'])
 def update():
     if not session.get('logged_in'):
         return render_template('login.html')
     db = get_db()
     db.execute('update polizas set estatus = 2 where id_poliza = ?',
-                [request.form['id_poliza']])
+               [request.form['id_poliza']])
     db.commit()
     flash('update')
     return redirect(url_for('show_renovadas'))
+    
+#update estatus poliza a estatus pagada
+@app.route('/updatepagada', methods=['POST'])
+def update_pagada():
+    if not session.get('logged_in'):
+        return render_template('login.html')
+    db = get_db()
+    db.execute('update polizas set estatus = 3 where id_poliza = ?',
+               [request.form['id_poliza']])
+    db.commit()
+    flash('update')
+    return redirect(url_for('show_notificadas'))
+
 
 
 #agregar entrada blog

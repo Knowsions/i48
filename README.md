@@ -4,8 +4,9 @@
 Hecha con python flask
 </p>
 
-cosas importantes<br>
-http://link
+
+Acceso:<br>
+http://fintech-2016-gozhack.c9users.io/
 
 otras cosas<br>
 https://link

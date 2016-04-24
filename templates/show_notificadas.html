@@ -53,8 +53,8 @@
                       </thead>
                         
                       <tbody>
-                        {% for current in renovadas %}
-                          <form action="{{ url_for('update') }}" method="post" >
+                        {% for current in notificadas %}
+                          <form action="{{ url_for('update_pagada') }}" method="post" >
                             {% if  current.peligro  == 1  %}
                               <tr class="danger">
                             {% else %}
@@ -69,8 +69,8 @@
                               <!--<td>{{ current.correo }}</td>-->
                               <!--<td>{{ current.direccion }}</td>-->
                               <!--<td>{{ current.estatus }}</td>-->
-                              {% if current.estatus  == 1%}
-                              <td><button class="btn btn-success" value="{{ current.id_poliza }}" name="id_poliza">Notificar</button></td>
+                              {% if current.estatus  == 2%}
+                              <td><button class="btn btn-success" value="{{ current.id_poliza }}" name="id_poliza">Pagada</button></td>
                               {% endif %}
                               
                               <!--<td><button type="submit" value="{{ current.id_poliza }}"  name="id_poliza"   class="btn btn-primary give-id" >Actualizar</button></td>-->
@@ -80,8 +80,6 @@
                                           
                     </table>
                     
-                    
-                 
                   </div>
                 </div>
               </div>
