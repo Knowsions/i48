@@ -49,11 +49,10 @@ Acceder a la siguiente liga ejemplo e identificarse con un usuario y contraseña
 			
 			</dl>
 			<dl>
-			<dt>Negocios:</dt><i>
-					
-					<dd> Andrea Muñoz Garcia </dd>
-					<dd>Maria Fernanda</dd>
-			
+    			<dt>Negocios:</dt><i>
+    					
+    					<dd> Andrea Muñoz Garcia </dd>
+    					<dd>Maria Fernanda</dd></i>
 			</dl>
 			</ul>
 	
