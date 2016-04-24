@@ -45,7 +45,7 @@
                         <th>Vence</th>
                         <!--<th>costo_renovacion</th>-->
                         <th>Cliente</th>
-                        <!--<th>telefono</th>-->
+                        <th>telefono</th>
                         <!--<th>correo</th>-->
                         <!--<th>direccion</th>-->
                         <!--<th>estatus</th>-->
@@ -65,7 +65,8 @@
                               <td>{{ current.fecha_vencimiento }}</td>
                               <!--<td>{{ current.costo_renovacion }}</td>-->
                               <td>{{ current.nombre_cliente }}</td>
-                              <!--<td>{{ current.telefono }}</td>-->
+                              <td>{{ current.telefono }}</td>
+                              <input type="hidden" name="telefono" value="{{ current.telefono }}">
                               <!--<td>{{ current.correo }}</td>-->
                               <!--<td>{{ current.direccion }}</td>-->
                               <!--<td>{{ current.estatus }}</td>-->

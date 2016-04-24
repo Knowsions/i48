@@ -10,6 +10,8 @@ from flask import Flask, request, session, g, redirect, url_for, abort, \
      render_template, flash
 from contextlib import closing
 
+from twilio.rest import TwilioRestClient
+
 # create our little application :)
 app = Flask(__name__)
 
@@ -101,6 +103,7 @@ def show_notificadas():
         return render_template('login.html')
     #Cancelamos facturas ya vencidas
     #cancelarFacturas()
+    
     db = get_db()
     #Solo polizas con estatus 2
     cur = db.execute('select id_poliza,  no_poliza,	case when fecha_vencimiento < date(date(\'now\'), \'+5 day\')\
@@ -109,7 +112,17 @@ def show_notificadas():
             telefono,correo,direccion,estatus from polizas where estatus = 2  order by fecha_vencimiento')
     notificadas = cur.fetchall()
     return render_template('show_notificadas.html', notificadas=notificadas)
-    
+
+#Mensaje de texto al agente seleccionado
+def sentSMS(numero):
+    # Find these values at https://twilio.com/user/account
+    account_sid = "AC930f8c2979f5bd61ea9f50d613813f99"
+    auth_token = "60c4a99ba94111ba30110205e93f61d2"
+    client = TwilioRestClient(account_sid, auth_token)
+    #   "+524772398525"
+    message = client.messages.create(to=numero, from_="+18122264688",
+    body="El mejor de los dias, soy Juan Perez, su agente de seguros HDI, recordandole su poliza 11111 esta proxima a vencer. Gracias.")
+
 #vista polizas pagadas
 @app.route('/pagadas')
 def show_pagadas():
@@ -145,10 +158,7 @@ def cancelarFacturas():
     cur = db.execute('update polizas set estatus = 4 where fecha_vencimiento < date(\'now\')')
     execute = cur.fetchall()
     
-
-<<<<<<< HEAD
 #update estatus poliza a estatus notificado
-=======
 @app.route('/historial')
 def show_historial():
     if not session.get('logged_in'):
@@ -160,8 +170,7 @@ def show_historial():
     historial = fetched.fetchall()
     return render_template('show_historial.html', historial=historial)
 
-#update poliza
->>>>>>> 0649003dea58f9abcbfba826fb79acc55d43f467
+#update poliza a estatus de notificada
 @app.route('/update', methods=['POST'])
 def update():
     if not session.get('logged_in'):
@@ -170,6 +179,8 @@ def update():
     db.execute('update polizas set estatus = 2 where id_poliza = ?',
                [request.form['id_poliza']])
     db.commit()
+    #enviamos el mensaje de texto
+    sentSMS([request.form['telefono']])
     flash('update')
     return redirect(url_for('show_renovadas'))
     
@@ -218,9 +229,9 @@ def login():
     error = None
     if request.method == 'POST':
         if request.form['username'] != app.config['USERNAME']:
-            error = 'Invalid username'
+            error = 'Usuario incorrecto'
         elif request.form['password'] != app.config['PASSWORD']:
-            error = 'Invalid password'
+            error = 'Contraseña incorrecta'
         else:
             session['logged_in'] = True
             flash('You were logged in')

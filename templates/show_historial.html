@@ -18,7 +18,7 @@
                       <option value="25">25</option>
                       <option value="50">50</option>
                       <option value="100">100</option>
-                    </select> registros por pagina
+                    </select> por pagina
                   </label>
                 </div>
               </div>
@@ -29,28 +29,7 @@
         </div>
       </div>
     </div>
-    
-    
-    <table id="datatable1" class="table table-striped table-hover dataTable no-footer" role="grid" aria-describedby="datatable1_info">
-      <thead>
-        <tr role="row">
-          <th class="sorting" tabindex="0" aria-controls="datatable1" rowspan="1" colspan="1" aria-label="Rendering engine: activate to sort column ascending" style="width: 177px;">Rendering engine</th>
-          <th class="sorting" tabindex="0" aria-controls="datatable1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 259px;">
-            Browser
-          </th>
-          <th class="sorting" tabindex="0" aria-controls="datatable1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 239px;">
-            Platform(s)
-          </th>
-          <th class="sort-numeric sorting_asc" tabindex="0" aria-controls="datatable1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column descending" style="width: 152px;" aria-sort="ascending">
-            Engine version
-          </th>
-          <th class="sort-alpha sorting" tabindex="0" aria-controls="datatable1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 109px;">
-            CSS grade</th>
-          </tr>
-      </thead>
-    </table>
       
-    
               <div class="table-responsive">
                 <div class="row">
                   <div class="col-lg-12">
@@ -73,7 +52,7 @@
                               <td>{{ registros.descuento }}</td>
                               <td>{{ registros.razon_descuento }}</td>
                               <td>{{ registros.fecha_hora }}</td>
-                              <td><button type="submit"  name="id" value={{ registros.id_poliza }} class="btn btn-default" >Actualizar</button></td>
+                              <td><button class="btn btn-info" type="submit"  name="id" value={{ registros.id_poliza }} >Generar detalle</button></td>
                             </tr>    
                           </form>
                         {% endfor %}

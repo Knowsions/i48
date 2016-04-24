@@ -13,7 +13,8 @@
     
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
     
-    
+    <!-- LOGIN -->
+    <link rel="stylesheet" href="static/css/signin.css">
     
     <!-- FONT AWESOME-->
     <link rel="stylesheet" href="static/css/font-awesome.min.css">
@@ -46,28 +47,34 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="page-scroll">
-                        <a href="/renovadas">Renovadas</a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="/notificadas">Notificadas</a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="/canceladas">Canceladas</a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="/pagadas">Pagadas</a>
-                    </li>
-                    <li class="page-scroll">
                         {% if not session.logged_in %}
+                        <li class="page-scroll">
                             <a href="{{ url_for('login') }}">Entrar</a>
+                        </li>
                         {% else %}
+                        <li class="page-scroll">
+                            <a href="/renovadas">Renovadas</a>
+                        </li>
+                        <li class="page-scroll">
+                            <a href="/notificadas">Notificadas</a>
+                        </li>
+                        <li class="page-scroll">
+                            <a href="/canceladas">Canceladas</a>
+                        </li>
+                        <li class="page-scroll">
+                            <a href="/pagadas">Pagadas</a>
+                        </li>
+                        <li class="page-scroll">
+                            <a href="/historial">Historial</a>
+                        </li>
+                        <li class="page-scroll">
                             <a href="{{ url_for('logout') }}">Salir</a>
+                        </li>
                         {% endif %}
                         <!--{% for message in get_flashed_messages() %}-->
                         <!--<div class="flash">{{ message }}</div>-->
                         {% endfor %}
-                    </li>
+                        
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
