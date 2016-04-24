@@ -146,7 +146,22 @@ def cancelarFacturas():
     execute = cur.fetchall()
     
 
+<<<<<<< HEAD
 #update estatus poliza a estatus notificado
+=======
+@app.route('/historial')
+def show_historial():
+    if not session.get('logged_in'):
+        return render_template('login.html')
+    if not session.get('logged_in'):
+        abort(401)
+    db = get_db()
+    fetched = db.execute('select detalle_siniestro, monto_pago, descuento, razon_descuento from historial  where id_poliza = 11111 order by fecha_hora')
+    historial = fetched.fetchall()
+    return render_template('show_historial.html', historial=historial)
+
+#update poliza
+>>>>>>> 0649003dea58f9abcbfba826fb79acc55d43f467
 @app.route('/update', methods=['POST'])
 def update():
     if not session.get('logged_in'):

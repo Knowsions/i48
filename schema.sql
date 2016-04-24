@@ -30,6 +30,26 @@ create table polizas(
   estatus integer
 );
 
+drop table if exists historial;
+create table historial(
+  id_historial integer primary key,
+  detalle_siniestro text,
+  monto_pago double,
+  descuento integer,
+  razon_descuento text,
+  fecha_hora  bigint,
+  id_poliza integer
+);
+
+insert into historial(id_poliza, detalle_siniestro, monto_pago, descuento, razon_descuento, fecha_hora)
+  values('11111','Choque casual',  '553.24', '40', 'Es buena persona.', '1430098138');
+
+insert into historial(id_poliza, detalle_siniestro, monto_pago, descuento, razon_descuento, fecha_hora)
+  values('11111','Choque leve.',  '580.22', '10', 'Todo en regla.', '1451179738');
+
+insert into historial(id_poliza, detalle_siniestro, monto_pago, descuento, razon_descuento, fecha_hora)
+  values('11111','Choquecito',  '604.19', '0', 'Sin comentarios.', '1452389338');
+
 
 insert into polizas(no_poliza, fecha_vencimiento,costo_renovacion,nombre_cliente,
   telefono,correo,direccion,estatus) 
