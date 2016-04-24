@@ -63,11 +63,9 @@ Acceder a la siguiente liga ejemplo e identificarse con un usuario y contraseña
     				</i>
     		</dl>
     		
-    		<dl>
-    			<dt>Contacto:</dt>
-                    <i>
-                        <dd><i>Derechos Reservados: A Knowsions</i></dd>
-    					<dd>Maria Fernanda</dd>
-    				</i>
-    		</dl>
+    		
+Contacto:
+
+Derechos Reservados: A Knowsions
+    	
 		</ul>
