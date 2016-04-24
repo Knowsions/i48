@@ -55,8 +55,6 @@ Acceder a la siguiente liga ejemplo e identificarse con un usuario y contraseña
     					<dd>Maria Fernanda</dd></i>
 			</dl>
 		</ul>
-	
-	 
-	<h3>Contacto:</h3>
+	<h3>Contacto:</h3> 
 
 </p>
