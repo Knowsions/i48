@@ -2,55 +2,11 @@
 {% block body %}
   {% if session.logged_in %}
   
+  <div class="col-lg-6">
+                  <div class="panel panel-default">
+                     
+                     <div class="panel-body">
   
-  <div class="table-responsive">
- <table class="table">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Username</th>
-      <th>Last Name</th>
-      <th>Username</th>
-      <th>Last Name</th>
-      <th>Username</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-  </tbody>
-</table>
-</div>
   
   <div class="table-responsive">
 
@@ -94,5 +50,22 @@
    </tbody>
   </table>
   </div>
+<<<<<<< HEAD
   {% endif %}
+=======
+<<<<<<< HEAD
+  </div>
+  </div>
+  </div>
+  </div>
+  
+  {% else %}
+  
+  redirect('login')
+  
+   {%endif%}
+=======
+  {% else redirect( url_for('login')) endif%}
+>>>>>>> 74c4a3a4c344a311ce04c4ff014516a8fb0094a3
+>>>>>>> 06ad7e9eba7f75da7381ddf60494a9fe3bf0edad
 {% endblock %}
