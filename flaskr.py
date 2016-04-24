@@ -247,4 +247,5 @@ def logout():
 
 if __name__ == '__main__':
     # app.run()
+    #Indicamos getenv para poder utilizar la ruta y puerto especifico en la nube
     app.run(host=os.getenv('IP','0.0.0.0'),port=int(os.getenv('PORT',8080)))

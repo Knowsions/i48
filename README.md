@@ -1,6 +1,6 @@
 
 <h1>I-48 Aplicación para HDI Seguros</h1>
-<i>	Versión 1.0 hecha con Python Flask y SqlLite3 </i>
+<i>	Versión 1.0 </i>
 <h3>Descripción:</h3> 
 I-48 Es una aplicación web móvil de control y renovación de pólizas  diseñada para la 
 empresa HDI Seguros dirigida a los agentes de ventas.
@@ -10,8 +10,17 @@ cuenta con una forma automatizada de alertas para recordar que póliza esta pró
 de la cartera de clientes del propio agente, permitiendo notificación vía SMS al número del cliente, contando 
 con una interfaz agradable para el agente de ventas.
 
-<br>Acceso:
+<br><h3>Acceso:</h3>
 <h2><a href= "http://fintech-2016-gozhack.c9users.io/">i48</a></h2>
+
+<br><h3>Implementación con:</h3>
+<ul>
+  <li><a href= "http://flask.pocoo.org/">Python Flask</a></li>
+  <li><a href= "https://www.sqlite.org/">Sqlite3</a></li>
+  <li><a href= "https://c9.io/">Cloud9</a></li>
+  <li><a href= "https://www.twilio.com/">Twilio</a></li>
+</ul>
+
 
 
 <h3>Requisitos:  </h3>

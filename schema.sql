@@ -5,7 +5,6 @@ create table entries (
   text text not null
 );
 
-
 drop table if exists catalogo_estatus;
 create table catalogo_estatus(
   id integer not null,
