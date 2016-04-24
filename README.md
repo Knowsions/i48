@@ -21,11 +21,10 @@ con una interfaz agradable para el agente de ventas.
 </ul>
 
 
-<b>Instalación:</b> <i>  Esta versión no ocupa instalación </i>
+<b>Instalación:</b> <i>  Esta versión no ocupa instalación se ejecuta sobre un navegador estandar.</i>
 
 <h3>Instrucciones:</h3> 
-Acceder a la siguiente liga ejemplo e identificarse con un usuario y contraseña, en caso de olvidar su 
-contraseña, dar click en la liga ¿olvido su contraseña?  Para verificar su correo y hacer el cambio.
+Acceder a la siguiente liga ejemplo e identificarse con un usuario y contraseña.
 
 
 <br><b>Cambio de registro:</b><i>Primera versión.</i>
@@ -57,12 +56,18 @@ contraseña, dar click en la liga ¿olvido su contraseña?  Para verificar su co
 			
 			</dl>
 			<dl>
-    			<dt>Negocios:</dt><i>
-    					
-    					<dd> Andrea Muñoz Garcia </dd>
-    					<dd>Maria Fernanda</dd></i>
-			</dl>
+    			<dt>Negocios:</dt>
+    			    <i>
+    			        <dd>Andrea Muñoz Garcia</dd>
+    					<dd>Maria Fernanda</dd>
+    				</i>
+    		</dl>
+    		
+    		<dl>
+    			<dt>Contacto:</dt>
+                    <i>
+                        <dd><i>Derechos Reservados: A Knowsions</i></dd>
+    					<dd>Maria Fernanda</dd>
+    				</i>
+    		</dl>
 		</ul>
-	<h3>Contacto:</h3>
-	Nuestros datos como Empresa
-	<h5><i>Derechos Reservados: A Knowsions</i></h5> 
