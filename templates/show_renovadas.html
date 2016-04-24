@@ -2,66 +2,53 @@
 {% block body %}
   {% if session.logged_in %}
   
-  <div class="col-lg-6">
-                  <div class="panel panel-default">
-                     
-                     <div class="panel-body">
-  
-  
+ 
+  <!-- START DATATABLE-->
   <div class="table-responsive">
-
-
-  <table class="table">
-    <thead>
-    <tr>
-      <!--<th>id_poliza</th>-->
-      <th>Poliza</th>
-      <th>Fecha Vencer</th>
-      <!--<th>costo_renovacion</th>-->
-      <th>Cliente</th>
-      <!--<th>telefono</th>-->
-      <!--<th>correo</th>-->
-      <!--<th>direccion</th>-->
-      <!--<th>estatus</th>-->
-    </tr>
-  </thead>
-  
-  <tbody>
-    {% for current in renovadas %}
-     <form action="{{ url_for('update') }}" method="post" >
-      {% if  current.peligro  == 1  %}
-      <tr class="danger">
-        {% else %}
-      <tr class="info">  
-        {% endif %}
-      <!--<td>{{ current.id_poliza }}</td>-->
-      <td>{{ current.no_poliza }}</td>
-      <td>{{ current.fecha_vencimiento }}</td>
-      <!--<td>{{ current.costo_renovacion }}</td>-->
-      <td>{{ current.nombre_cliente }}</td>
-      <!--<td>{{ current.telefono }}</td>-->
-      <!--<td>{{ current.correo }}</td>-->
-      <!--<td>{{ current.direccion }}</td>-->
-      <!--<td>{{ current.estatus }}</td>-->
-      <td><button type="submit"  name="id" value={{ current.id_poliza }} class="btn btn-default" >Actualizar</button></td>
-    </tr>    
-    </form>
-    {% endfor %}
-   </tbody>
-  </table>
+    <div class="row">
+      <div class="col-lg-12">
+        <table class="table">
+          <thead>
+            <tr>
+            <!--<th>id_poliza</th>-->
+            <th>Poliza</th>
+            <th>Fecha Vencer</th>
+            <!--<th>costo_renovacion</th>-->
+            <th>Cliente</th>
+            <!--<th>telefono</th>-->
+            <!--<th>correo</th>-->
+            <!--<th>direccion</th>-->
+            <!--<th>estatus</th>-->
+            </tr>
+          </thead>
+            
+          <tbody>
+            {% for current in renovadas %}
+              <form action="{{ url_for('update') }}" method="post" >
+                {% if  current.peligro  == 1  %}
+                  <tr class="danger">
+                {% else %}
+                  <tr class="info">  
+                {% endif %}
+                  <!--<td>{{ current.id_poliza }}</td>-->
+                  <td>{{ current.no_poliza }}</td>
+                  <td>{{ current.fecha_vencimiento }}</td>
+                  <!--<td>{{ current.costo_renovacion }}</td>-->
+                  <td>{{ current.nombre_cliente }}</td>
+                  <!--<td>{{ current.telefono }}</td>-->
+                  <!--<td>{{ current.correo }}</td>-->
+                  <!--<td>{{ current.direccion }}</td>-->
+                  <!--<td>{{ current.estatus }}</td>-->
+                  <td><button type="submit"  name="id" value={{ current.id_poliza }} class="btn btn-default" >Actualizar</button></td>
+                </tr>    
+              </form>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
-<<<<<<< HEAD
-  </div>
-  </div>
-  </div>
-  </div>
-  
-  {% else %}
-  
-  redirect('login')
   
    {%endif%}
-=======
-  {% else redirect( url_for('login')) endif%}
->>>>>>> 74c4a3a4c344a311ce04c4ff014516a8fb0094a3
+
 {% endblock %}
