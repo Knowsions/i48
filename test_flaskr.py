@@ -2,9 +2,7 @@
 """
     Flaskr Tests
     ~~~~~~~~~~~~
-    Tests the Flaskr application.
-    :copyright: (c) 2015 by Armin Ronacher.
-    :license: BSD, see LICENSE for more details.
+
 """
 
 import pytest

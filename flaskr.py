@@ -2,10 +2,7 @@
 """
     Flaskr
     ~~~~~~
-    A microblog example application written as Flask tutorial with
-    Flask and sqlite3.
-    :copyright: (c) 2015 by Armin Ronacher.
-    :license: BSD, see LICENSE for more details.
+    Application written with Flask and sqlite3.
 """
 import os
 from sqlite3 import dbapi2 as sqlite3
