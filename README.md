@@ -10,7 +10,7 @@
 
 <h3>Requisitos:  </h3>
 <ul>
-<li> Tener instalado cualquier navegador (Chrome, Firefox, Safari, etc.)</li>
+<li>Tener instalado cualquier navegador (Chrome, Firefox, Safari, etc.)</li>
 <li>Conexión a internet</li>	
 </ul>
 
@@ -23,30 +23,44 @@ Acceder a la siguiente liga ejemplo e identificarse con un usuario y contraseña
 
 <br><b>Cambio de registro:</b><i> Es la primera versión.</i>
 <h3>Crédito:</h3>  
-<h5> <i>a Knowsions</i></h5>
-<ul>
-<dl> 
-<dt>Análisis:</dt><i>
-
-<dd>Angel Razo</dd>
-<dd>Jonathan</dd>
-<dd>Omar Fuentes  </dd>
-<dd>Karim Herrera</dd>
-<dd>Julia</dd></i>
-</dl>
-<dt>Diseño:</dt><i>
-<dd>Karim</dd>
-<dd>Elia Vite </dd></i>
-</dl>
-<dt>Programación:</dt><i>
-<dd> Omar Fuentes  </dd>
-<dd>Jonathan</dd>
-<dd>Karim Herrera</dd>
-</dl>
-<dt>Negocios:</dt><i>
-<dd> Andrea Muñoz Garcia </dd>
-<dd>Maria Fernanda</dd>
-</dl>
-</ul>
-<h3>Contacto:</h3>
-<h5><i>Derechos Reservados: A Knowsions</i></h5>
+<h5><i>Knowsions</i></h5>
+    <ul>
+        <dl> 
+            <dt>Análisis:</dt>
+                <i>
+                    <dd>Angel Razo</dd>
+                    <dd>Jonathan</dd>
+                    <dd>Omar Fuentes  </dd>
+                    <dd>Karim Herrera</dd>
+                    <dd>Julia</dd>
+                </i>
+        </dl>
+        
+        <dl>
+            <dt>Diseño:</dt>
+                <i>
+                    <dd>Karim</dd>
+                    <dd>Elia Vite </dd>
+                </i>
+        </dl>
+        
+        <dl>
+            <dt>Programación:</dt>
+                <i>
+                    <dd>Omar Fuentes</dd>
+                    <dd>Jonathan</dd>
+                    <dd>Karim Herrera</dd>
+                </i>
+        </dl>
+        
+        <dl>
+            <dt>Negocios:</dt>
+                <i>
+                    <dd>Andrea Muñoz Garcia</dd>
+                    <dd>Maria Fernanda</dd>
+                </i>
+        </dl>
+    </ul>
+    
+    <h3>Contacto:</h3>
+    <h5><i>Derechos Reservados: A Knowsions</i></h5>
