@@ -21,7 +21,7 @@
 Acceder a la siguiente liga ejemplo e identificarse con un usuario y contraseña, en caso de olvidar su contraseña, dar click en la liga ¿olvido su contraseña?  Para verificar su correo y hacer el cambio.
 
 
-<br><b>Cambio de registro:</b><i> Es la primera versión.</i>
+<br><b>Cambio de registro:</b><i>Primera versión.</i>
 <h3>Crédito:</h3>  
 <h5><i>Knowsions</i></h5>
     <ul>
