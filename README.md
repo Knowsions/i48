@@ -54,10 +54,9 @@ Acceder a la siguiente liga ejemplo e identificarse con un usuario y contraseña
     					<dd> Andrea Muñoz Garcia </dd>
     					<dd>Maria Fernanda</dd></i>
 			</dl>
-			</ul>
+		</ul>
 	
 	 
 	<h3>Contacto:</h3>
-	Nuestros datos como Empresa
-	<h5><i>Derechos Reservados: A Knowsions</i></h5>
+
 </p>
