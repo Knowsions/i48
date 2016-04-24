@@ -10,7 +10,8 @@
 import os
 from sqlite3 import dbapi2 as sqlite3
 from flask import Flask, request, session, g, redirect, url_for, abort, \
-     render_template, flash, current_user
+     render_template, flash
+#from flask.ext.login import current_user
 from contextlib import closing
 
 # create our little application :)
@@ -75,33 +76,53 @@ def show():
 #agregar estatus
 @app.route('/estatus')
 def show_estatus():
-    if current_user.is_authenticated():
-        db = get_db()
-        cur = db.execute('select id, descripcion from catalogo_estatus order by id desc')
-        estatus = cur.fetchall()
-        return render_template('show_estatus.html', estatus=estatus)
-    else:
-        return render_template("login.html")
+    #if current_user.is_authenticated():
+    if not session.get('logged_in'):
+        return render_template('login.html')
+    db = get_db()
+    cur = db.execute('select id, descripcion from catalogo_estatus order by id desc')
+    estatus = cur.fetchall()
+    return render_template('show_estatus.html', estatus=estatus)
+    #else:
+    #    return render_template("login.html")
     
 #agregar vista polizas renovadas sin cobrar
+@app.route('/renovadas')
 @app.route('/')
 def show_renovadas():
-    if current_user.is_authenticated():
-        db = get_db()
-        cur = db.execute('select no_poliza,	case when fecha_vencimiento < date(date(\'now\'), \'+5 day\')\
-                    then 1\
-                    else 0 end as peligro, fecha_vencimiento,costo_renovacion,nombre_cliente,\
-      telefono,correo,direccion,estatus from polizas order by fecha_vencimiento')
-        renovadas = cur.fetchall()
-        return render_template('show_renovadas.html', renovadas=renovadas)
-    else:
-        return render_template("login.html")
+    #if current_user.is_authenticated():
+    if not session.get('logged_in'):
+        return render_template('login.html')
+    db = get_db()
+    cur = db.execute('select no_poliza,	case when fecha_vencimiento < date(date(\'now\'), \'+5 day\')\
+                then 1\
+                else 0 end as peligro, fecha_vencimiento,costo_renovacion,nombre_cliente,\
+  telefono,correo,direccion,estatus from polizas order by fecha_vencimiento')
+    renovadas = cur.fetchall()
+    return render_template('show_renovadas.html', renovadas=renovadas)
+    #else:
+    #    return render_template("login.html")
 
+"""@app.route('/historial')
+def show_historial():
+    #if current_user.is_authenticated():
+    if not session.get('logged_in'):
+        return render_template('login.html')
+    db = get_db()
+    cur = db.execute('select no_poliza, case when fecha_vencimiento < date(date(\'now\'), \'+5 day\')\
+                then 1\
+                else 0 end as peligro, fecha_vencimiento,costo_renovacion,nombre_cliente,\
+  telefono,correo,direccion,estatus from polizas order by fecha_vencimiento')
+    renovadas = cur.fetchall()
+    return render_template('show_renovadas.html', renovadas=renovadas)
+    #else:
+    #    return render_template("login.html")
+"""
 #update poliza
 @app.route('/update', methods=['POST'])
 def update():
     if not session.get('logged_in'):
-        abort(401)
+        return render_template('login.html')
     db = get_db()
     db.execute('update polizas set estatus = 2 where id_poliza = ?',
                 [request.form['id_poliza']])
