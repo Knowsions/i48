@@ -32,8 +32,7 @@ con una interfaz agradable para el agente de ventas.
 
 <b>Instalación:</b> <i>  Esta versión no ocupa instalación se ejecuta sobre un navegador estandar.</i>
 
-<h3>Instrucciones:</h3> 
-Acceder a la siguiente liga ejemplo e identificarse con un usuario y contraseña.
+<h3><a href= "https://canvanizer.com/canvas/dm9cReFXjCo">i48</a></h3>
 
 
 <br><b>Cambio de registro:</b><i>Primera versión.</i>
